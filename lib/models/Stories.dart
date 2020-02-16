@@ -2,5 +2,5 @@
 // -> Stories
 
 class Stories {
-  
+
 }
