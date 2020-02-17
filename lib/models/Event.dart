@@ -1,6 +1,6 @@
 // https://developer.marvel.com/documentation/entity_types
-// -> Creators
+// -> Events
 
-class Creators {
+class Event {
 
 }

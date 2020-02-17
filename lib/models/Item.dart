@@ -1,11 +1,11 @@
-class Items {
+class Item {
   String name;
   String type;
   String resourceURI;
 
-  Items({this.name, this.type, this.resourceURI});
+  Item({this.name, this.type, this.resourceURI});
 
-  Items.fromJson(Map<String, dynamic> json) {
+  Item.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     type = json['type'];
     resourceURI = json['resourceURI'];

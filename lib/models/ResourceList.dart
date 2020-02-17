@@ -1,11 +1,11 @@
-import 'package:marvel_flutter/models/Items.dart';
+import 'package:marvel_flutter/models/Item.dart';
 
 // https://developer.marvel.com/documentation/entity_types
 // -> Resource Lists
 class ResourceList {
   int available;
   String collectionURI;
-  List<Items> items;
+  List<Item> items;
   int returned;
 
   ResourceList(
@@ -15,9 +15,9 @@ class ResourceList {
     available = json['available'];
     collectionURI = json['collectionURI'];
     if (json['items'] != null) {
-      items = new List<Items>();
+      items = new List<Item>();
       json['items'].forEach((v) {
-        items.add(new Items.fromJson(v));
+        items.add(new Item.fromJson(v));
       });
     }
     returned = json['returned'];

@@ -1,26 +1,22 @@
-import 'package:marvel_flutter/models/Comics.dart';
-import 'package:marvel_flutter/models/Events.dart';
-import 'package:marvel_flutter/models/Images.dart';
-import 'package:marvel_flutter/models/Series.dart';
-import 'package:marvel_flutter/models/Stories.dart';
-import 'package:marvel_flutter/models/Urls.dart';
+import 'package:marvel_flutter/models/Image.dart';
+import 'package:marvel_flutter/models/Url.dart';
 
 // https://developer.marvel.com/documentation/entity_types
 // -> Characters
-class Characters {
+class Character {
   int id;
   String name;
   String description;
   String modified;
-  Images thumbnail;
+  Image thumbnail;
   String resourceURI;
-  // Comics comics;
-  // Series series;
-  // Stories stories;
-  // Events events;
-  // Urls urls;
+  // ResourceList+a comics;
+  // ResourceList+a series;
+  // ResourceList+a stories;
+  // ResourceList+a events;
+  // List<Url> urls;
 
-  Characters(
+  Character(
       {this.id,
         this.name,
         this.description,
@@ -28,13 +24,13 @@ class Characters {
         this.thumbnail,
         this.resourceURI});
 
-  Characters.fromJson(Map<String, dynamic> json) {
+  Character.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
     modified = json['modified'];
     thumbnail = json['thumbnail'] != null
-        ? new Images.fromJson(json['thumbnail'])
+        ? new Image.fromJson(json['thumbnail'])
         : null;
     resourceURI = json['resourceURI'];
   }

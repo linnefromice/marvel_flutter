@@ -1,10 +1,5 @@
-import 'package:marvel_flutter/models/Characters.dart';
-import 'package:marvel_flutter/models/Comics.dart';
-import 'package:marvel_flutter/models/Creators.dart';
-import 'package:marvel_flutter/models/Events.dart';
-import 'package:marvel_flutter/models/Images.dart';
-import 'package:marvel_flutter/models/Stories.dart';
-import 'package:marvel_flutter/models/Urls.dart';
+import 'package:marvel_flutter/models/Image.dart';
+import 'package:marvel_flutter/models/Url.dart';
 
 // https://developer.marvel.com/documentation/entity_types
 // -> Series
@@ -18,13 +13,13 @@ class Series {
   String rating;
   String type;
   String modified;
-  Images thumbnail;
-  // Creators creators;
-  // Characters characters;
-  // Stories stories;
-  // Comics comics;
-  // Events events;
-  // Urls urls;
+  Image thumbnail;
+  // ResourceList+a creators;
+  // ResourceList+a characters;
+  // ResourceList+a stories;
+  // ResourceList+a comics;
+  // ResourceList+a events;
+  // List<Url> urls;
   // SeriesSummary next;
   // SeriesSummary previous;
 
@@ -51,7 +46,7 @@ class Series {
     type = json['type'];
     modified = json['modified'];
     thumbnail = json['thumbnail'] != null
-        ? new Images.fromJson(json['thumbnail'])
+        ? new Image.fromJson(json['thumbnail'])
         : null;
   }
 

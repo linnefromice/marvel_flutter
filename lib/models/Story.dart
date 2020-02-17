@@ -1,6 +1,6 @@
 // https://developer.marvel.com/documentation/entity_types
-// -> Comics
+// -> Stories
 
-class Comics {
+class Story {
 
 }

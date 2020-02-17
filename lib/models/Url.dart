@@ -1,10 +1,10 @@
-class Urls {
+class Url {
   String type;
   String url;
 
-  Urls({this.type, this.url});
+  Url({this.type, this.url});
 
-  Urls.fromJson(Map<String, dynamic> json) {
+  Url.fromJson(Map<String, dynamic> json) {
     type = json['type'];
     url = json['url'];
   }
