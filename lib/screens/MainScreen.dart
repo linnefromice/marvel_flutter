@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_flutter/services/MarvelApiService.dart';
 
-class MainScreen extends StatefulWidget {
-  MainScreen({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State<MainScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Marvel Application"),
       ),
       body: Center(
         child: Column(
@@ -32,16 +17,18 @@ class _State extends State<MainScreen> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              'ZERO',
               style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
+        onPressed: () {
+          MarvelApiService.fetchCharacters();
+        },
       ),
     );
   }
