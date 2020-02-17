@@ -11,6 +11,8 @@ class MarvelApiService {
   final public_key = "2897bec72a68cf322e6f4cba8b778ada";
   final private_key = "XXXX";
 
+  final id_iron_man = "1009368";
+
   static Future fetchCharacters() async {
     // TODO: add logic
   }
