@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_flutter/models/CharactersResult.dart';
+import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class MainScreen extends StatelessWidget {
+
+  Widget _buildCharacterList(final CharactersResult result) {
+    final List<Character> list = result.data.results;
+
+    return ListView.builder(
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        final Character item = list[index];
+        return ListTile(
+          title: Text(item.name),
+          subtitle: Text(item.description),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,22 +27,21 @@ class MainScreen extends StatelessWidget {
         title: Text("Marvel Application"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              'ZERO',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+        child: FutureBuilder<CharactersResult>(
+          future: MarvelApiService.fetchCharacters(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return _buildCharacterList(snapshot.data);
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
+            return CircularProgressIndicator();
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        tooltip: 'refresh',
+        child: Icon(Icons.refresh),
         onPressed: () {
           MarvelApiService.fetchCharacters();
         },

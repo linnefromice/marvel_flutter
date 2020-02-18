@@ -25,31 +25,36 @@ class MarvelApiService {
     return md5.convert(bytes);
   }
 
-  static String _createUrl(final String entity, final String code) {
-    String url = base_url + "/" + entity;
-    String queryString = "ts=" + ts + "&apikey=" + public_key + "&hash=" + _calcHash().toString();
-    if (code == null) {
-      return url + "?" + queryString;
+  static String _createUrl(final String entity, final String id) {
+    if (id == null) {
+      return _createUrlWithoutId(entity);
     } else {
-      return url + "/" + code + "?" + queryString;
+      final String url = base_url + "/" + entity;
+      final String queryString = "ts=" + ts + "&apikey=" + public_key + "&hash=" + _calcHash().toString();
+      return url + "/" + id + "?" + queryString;
     }
   }
 
-  static Future<Map<String, dynamic>> fetchDatas(final url) async {
+  static String _createUrlWithoutId(final String entity) {
+    final String url = base_url + "/" + entity;
+    final String queryString = "ts=" + ts + "&apikey=" + public_key + "&hash=" + _calcHash().toString();
+    return url + "?" + queryString;
+  }
+
+  static Future<Map<String, dynamic>> _fetchDatas(final url) async {
     final response = await http.get(url);
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
-      throw Exception('Failed to load album');
+      print(response.statusCode);
+      throw Exception('Failed to fetchDatas');
     }
   }
 
-  static Future fetchCharacters() async {
+  static Future<CharactersResult> fetchCharacters() async {
     // TODO: modify logic (now sample logic)
-    final response = await fetchDatas(_createUrl(characters, id_iron_man));
-    print(response);
-    final CharactersResult result = CharactersResult.fromJson(response);
-    print(result.toJson());
+    final response = await _fetchDatas(_createUrlWithoutId(characters) + "&nameStartsWith=Iron%20Man");
+    return CharactersResult.fromJson(response);
   }
 
   static Future fetchComics() async {
