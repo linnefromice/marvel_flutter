@@ -1,4 +1,4 @@
-import 'package:marvel_flutter/models/Item.dart';
+import 'package:marvel_flutter/models/common/Item.dart';
 
 // https://developer.marvel.com/documentation/entity_types
 // -> Resource Lists

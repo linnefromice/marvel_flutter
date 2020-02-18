@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
+import 'package:marvel_flutter/models/CharactersResult.dart';
 
 class MarvelApiService {
   static final base_url = "https://gateway.marvel.com/v1/public";
@@ -34,11 +35,21 @@ class MarvelApiService {
     }
   }
 
+  static Future<Map<String, dynamic>> fetchDatas(final url) async {
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed to load album');
+    }
+  }
+
   static Future fetchCharacters() async {
     // TODO: modify logic (now sample logic)
-    final url = _createUrl(characters, id_iron_man);
-    final response = await http.get(url);
-    print(json.decode(response.body));
+    final response = await fetchDatas(_createUrl(characters, id_iron_man));
+    print(response);
+    final CharactersResult result = CharactersResult.fromJson(response);
+    print(result.toJson());
   }
 
   static Future fetchComics() async {
