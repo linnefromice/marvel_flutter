@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/screens/ChractersScreen.dart';
+import 'package:marvel_flutter/screens/SeriesScreen.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -23,6 +24,15 @@ class MainScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => CharactersScreen()),
+                  );
+                },
+              ),
+              ListTile(
+                title: Text('Series'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SeriesScreen()),
                   );
                 },
               ),
