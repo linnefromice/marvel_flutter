@@ -24,7 +24,7 @@ class CharactersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Marvel Application"),
+        title: Text("Marvel Characters"),
       ),
       body: Center(
         child: FutureBuilder<CharactersResult>(
