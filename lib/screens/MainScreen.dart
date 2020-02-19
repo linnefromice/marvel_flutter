@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/screens/ChractersScreen.dart';
 import 'package:marvel_flutter/screens/SeriesScreen.dart';
+import 'package:marvel_flutter/screens/TodayMarvelCharacterScreen.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -47,6 +48,16 @@ class MainScreen extends StatelessWidget {
         title: Text("Marvel Application"),
       ),
       drawer: _buildDrawer(),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Today\'s Marvel Character',
+        child: Icon(Icons.star),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodayMarvelCharacterScreen()),
+          );
+        },
+      ),
       body: Center(
         child: ListView(
           children: <Widget>[
