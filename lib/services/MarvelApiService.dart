@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:marvel_flutter/models/CharactersResult.dart';
 import 'package:marvel_flutter/models/SeriesResult.dart';
+import 'package:marvel_flutter/models/domain/Character.dart';
 
 class MarvelApiService {
   static final base_url = "https://gateway.marvel.com/v1/public";
@@ -56,6 +58,15 @@ class MarvelApiService {
     // TODO: modify logic (now sample logic)
     final response = await _fetchDatas(_createUrlWithoutId(characters) + "&nameStartsWith=Iron%20Man");
     return CharactersResult.fromJson(response);
+  }
+
+  static Future<Character> fetchRandomCharacter() async {
+    // TODO: modify logic (now sample logic)
+    final totalData = 1493; // LOW: Hard coding (use data from api)
+    final offsetNum = Random().nextInt(totalData);
+    final response = await _fetchDatas(_createUrlWithoutId(characters) + "&offset=" + offsetNum.toString() + "&limit=1");
+    final result = CharactersResult.fromJson(response);
+    return result.data.results[0];
   }
 
   static Future fetchComics() async {
