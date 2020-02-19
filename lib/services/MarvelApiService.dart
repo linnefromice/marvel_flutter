@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:marvel_flutter/models/CharactersResult.dart';
+import 'package:marvel_flutter/models/SeriesResult.dart';
 
 class MarvelApiService {
   static final base_url = "https://gateway.marvel.com/v1/public";
@@ -15,7 +16,7 @@ class MarvelApiService {
 
   static final ts = "1";
   static final public_key = "2897bec72a68cf322e6f4cba8b778ada";
-  static final private_key = "XXXX";
+  static final private_key = "bf160c108eb8eeb10ce41dc61973e1efe6ec162c";
 
   static final id_iron_man = "1009368";
 
@@ -69,8 +70,10 @@ class MarvelApiService {
     // TODO: add logic
   }
 
-  static Future fetchSeries() async {
-    // TODO: add logic
+  static Future<SeriesResult> fetchSeries() async {
+    // TODO: modify logic (now sample logic)
+    final response = await _fetchDatas(_createUrlWithoutId(series));
+    return SeriesResult.fromJson(response);
   }
 
   static Future fetchStories() async {
