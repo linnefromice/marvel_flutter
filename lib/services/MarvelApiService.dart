@@ -88,9 +88,9 @@ class MarvelApiService {
     return SeriesResult.fromJson(response);
   }
 
-  static Future fetchStories() async {
+  static Future<StoriesResult> fetchStories() async {
     // TODO: modify logic (now sample logic)
     final response = await _fetchDatas(_createUrlWithoutId(stories));
-    print(StoriesResult.fromJson(response).toJson());
+    return StoriesResult.fromJson(response);
   }
 }
