@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:marvel_flutter/models/CharactersResult.dart';
 import 'package:marvel_flutter/models/SeriesResult.dart';
+import 'package:marvel_flutter/models/StoriesResult.dart';
 import 'package:marvel_flutter/models/domain/Character.dart';
 
 class MarvelApiService {
@@ -88,6 +89,8 @@ class MarvelApiService {
   }
 
   static Future fetchStories() async {
-    // TODO: add logic
+    // TODO: modify logic (now sample logic)
+    final response = await _fetchDatas(_createUrlWithoutId(stories));
+    print(StoriesResult.fromJson(response).toJson());
   }
 }
