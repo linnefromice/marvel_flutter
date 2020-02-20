@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/models/StoriesResult.dart';
+import 'package:marvel_flutter/models/domain/Story.dart';
 import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class StoriesScreen extends StatelessWidget {
 
-  /*
-  Widget _buildCharacterList(final SeriesResult result) {
-    final List<Series> list = result.data.results;
+  Widget _buildStoriesList(final StoriesResult result) {
+    final List<Story> list = result.data.results;
 
     return ListView.builder(
       itemCount: list.length,
       itemBuilder: (context, index) {
-        final Series item = list[index];
+        final Story item = list[index];
         if (item.description == null) {
           return ListTile(
             title: Text(item.title),
@@ -25,7 +25,6 @@ class StoriesScreen extends StatelessWidget {
       },
     );
   }
-  */
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +37,7 @@ class StoriesScreen extends StatelessWidget {
           future: MarvelApiService.fetchStories(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              StoriesResult result = snapshot.data;
-              return Text(result.data.results[0].toJson().toString());
+              return _buildStoriesList(snapshot.data);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
