@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:marvel_flutter/models/CharactersResult.dart';
+import 'package:marvel_flutter/models/ComicsResult.dart';
 import 'package:marvel_flutter/models/SeriesResult.dart';
 import 'package:marvel_flutter/models/StoriesResult.dart';
 import 'package:marvel_flutter/models/domain/Character.dart';
@@ -70,8 +71,10 @@ class MarvelApiService {
     return result.data.results[0];
   }
 
-  static Future fetchComics() async {
-    // TODO: add logic
+  static Future<ComicsResult> fetchComics() async {
+    // TODO: modify logic (now sample logic)
+    final response = await _fetchDatas(_createUrlWithoutId(comics) + "&nameStartsWith=Iron%20Man");
+    print(ComicsResult.fromJson(response).data.results[0].toJson().toString());
   }
 
   static Future fetchCreators() async {
