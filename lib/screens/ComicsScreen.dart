@@ -7,7 +7,6 @@ import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class ComicsScreen extends StatelessWidget {
 
-  /*
   Widget _buildComicList(final ComicsResult result) {
     final List<Comic> list = result.data.results;
 
@@ -15,14 +14,19 @@ class ComicsScreen extends StatelessWidget {
       itemCount: list.length,
       itemBuilder: (context, index) {
         final Comic item = list[index];
-        return ListTile(
-          title: Text(item.name),
-          subtitle: Text(item.description),
-        );
+        if (item.description == null) {
+          return ListTile(
+            title: Text(item.title),
+          );
+        } else {
+          return ListTile(
+            title: Text(item.title),
+            subtitle: Text(item.description),
+          );
+        }
       },
     );
   }
-  */
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class ComicsScreen extends StatelessWidget {
           future: MarvelApiService.fetchComics(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Text(snapshot.data.toJson().toString());
+              return _buildComicList(snapshot.data);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
