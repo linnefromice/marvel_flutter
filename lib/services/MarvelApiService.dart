@@ -73,8 +73,8 @@ class MarvelApiService {
 
   static Future<ComicsResult> fetchComics() async {
     // TODO: modify logic (now sample logic)
-    final response = await _fetchDatas(_createUrlWithoutId(comics) + "&nameStartsWith=Iron%20Man");
-    print(ComicsResult.fromJson(response).data.results[0].toJson().toString());
+    final response = await _fetchDatas(_createUrlWithoutId(comics));
+    return ComicsResult.fromJson(response);
   }
 
   static Future fetchCreators() async {
