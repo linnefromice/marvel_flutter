@@ -1,9 +1,10 @@
 // https://developer.marvel.com/documentation/entity_types
-// -> Story
+// -> Comic
 
-import 'package:marvel_flutter/models/domain/Story.dart';
+import 'package:marvel_flutter/models/domain/Character.dart';
+import 'package:marvel_flutter/models/domain/Comic.dart';
 
-class StoriesResult {
+class ComicsResult {
   int code;
   String status;
   String copyright;
@@ -12,7 +13,7 @@ class StoriesResult {
   String etag;
   Container data;
 
-  StoriesResult(
+  ComicsResult(
       {this.code,
         this.status,
         this.copyright,
@@ -21,7 +22,7 @@ class StoriesResult {
         this.etag,
         this.data});
 
-  StoriesResult.fromJson(Map<String, dynamic> json) {
+  ComicsResult.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     copyright = json['copyright'];
@@ -51,7 +52,7 @@ class Container {
   int limit;
   int total;
   int count;
-  List<Story> results;
+  List<Comic> results;
 
   Container({this.offset, this.limit, this.total, this.count, this.results});
 
@@ -61,9 +62,9 @@ class Container {
     total = json['total'];
     count = json['count'];
     if (json['results'] != null) {
-      results = new List<Story>();
+      results = new List<Comic>();
       json['results'].forEach((v) {
-        results.add(new Story.fromJson(v));
+        results.add(new Comic.fromJson(v));
       });
     }
   }
