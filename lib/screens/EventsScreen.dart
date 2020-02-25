@@ -9,14 +9,13 @@ import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class EventsScreen extends StatelessWidget {
 
-  /*
-  Widget _buildCharacterList(final SeriesResult result) {
-    final List<Series> list = result.data.results;
+  Widget _buildEventList(final EventsResult result) {
+    final List<Event> list = result.data.results;
 
     return ListView.builder(
       itemCount: list.length,
       itemBuilder: (context, index) {
-        final Series item = list[index];
+        final Event item = list[index];
         if (item.description == null) {
           return ListTile(
             title: Text(item.title),
@@ -30,7 +29,6 @@ class EventsScreen extends StatelessWidget {
       },
     );
   }
-   */
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +41,7 @@ class EventsScreen extends StatelessWidget {
           future: MarvelApiService.fetchEvents(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              final EventsResult result = snapshot.data;
-              return Text(result.data.results[0].toJson().toString());
+              return _buildEventList(snapshot.data);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
