@@ -2,7 +2,17 @@
 
 Marvel application with Flutter
 
-## Getting Started
+## Reference
+
+### API
+
+- [Marvel Developer Portal](https://developer.marvel.com/)
+
+### Library
+
+- crypto ... For creating MD5 using marvel developer's public key & private key.
+
+## Default - Getting Started
 
 This project is a starting point for a Flutter application.
 
