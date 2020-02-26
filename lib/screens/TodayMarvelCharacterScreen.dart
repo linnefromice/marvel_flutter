@@ -3,15 +3,46 @@ import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class TodayMarvelCharacterScreen extends StatelessWidget {
+
+  Widget _buildProfileImage(final Character data) {
+    return Center(
+      child: Container(
+        width: 200.0,
+        height: 200.0,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(data.thumbnail.path + '/portrait_medium.' + data.thumbnail.extension),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(120.0),
+          border: Border.all(
+            color: Colors.white,
+            width: 12.0,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildResult(final Character data) {
     return (
-      ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text(data.name),
-            subtitle: Text(data.description),
-          )
-        ],
+      SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              _buildProfileImage(data),
+              Center(
+                child: Text(data.id.toString()),
+              ),
+              Center(
+                child: Text(data.name),
+              ),
+              Center(
+                child: Text(data.description),
+              ),
+            ],
+          ),
+        ),
       )
     );
   }
