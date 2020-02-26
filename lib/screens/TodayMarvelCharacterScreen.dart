@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_flutter/models/common/Image.dart' as CommonImage;
 import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/services/MarvelApiService.dart';
 
 class TodayMarvelCharacterScreen extends StatelessWidget {
 
-  Widget _buildProfileImage(final Character data) {
+  Widget _buildProfileImage(final CommonImage.Image thumbnail) {
+    final url = thumbnail.path + '/portrait_medium.' + thumbnail.extension;
     return Center(
       child: Container(
         width: 200.0,
         height: 200.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(data.thumbnail.path + '/portrait_medium.' + data.thumbnail.extension),
+            image: NetworkImage(url),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(120.0),
@@ -30,7 +32,7 @@ class TodayMarvelCharacterScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              _buildProfileImage(data),
+              _buildProfileImage(data.thumbnail),
               Center(
                 child: Text(data.id.toString()),
               ),
