@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/screens/ChractersScreen.dart';
 import 'package:marvel_flutter/screens/ComicsScreen.dart';
+import 'package:marvel_flutter/screens/CreatorsScreen.dart';
 import 'package:marvel_flutter/screens/EventsScreen.dart';
 import 'package:marvel_flutter/screens/SeriesScreen.dart';
 import 'package:marvel_flutter/screens/StoriesScreen.dart';
@@ -64,6 +65,15 @@ class MainScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => EventsScreen()),
+                  );
+                },
+              ),
+              ListTile(
+                title: Text('Creators'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreatorsScreen()),
                   );
                 },
               ),
