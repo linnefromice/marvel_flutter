@@ -34,10 +34,22 @@ class TodayMarvelCharacterScreen extends StatelessWidget {
             children: <Widget>[
               _buildProfileImage(data.thumbnail),
               Center(
-                child: Text(data.id.toString()),
+                child: Text(
+                  data.id.toString(),
+                  style: TextStyle(
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 20
+                  ),
+                ),
               ),
               Center(
-                child: Text(data.name),
+                child: Text(
+                  data.name,
+                  style: TextStyle(
+                      fontFamily: 'SourceSansPro',
+                      fontSize: 25
+                  ),
+                ),
               ),
               Center(
                 child: Text(data.description),
