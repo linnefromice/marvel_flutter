@@ -85,6 +85,16 @@ class TodayMarvelCharacterScreen extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'refresh',
+        child: Icon(Icons.refresh),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodayMarvelCharacterScreen())
+          );
+        },
+      ),
     );
   }
 }
