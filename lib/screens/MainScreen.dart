@@ -17,6 +17,11 @@ class _Movie {
 
 final movieList = [
   _Movie(1, "Iron Man", "May 2, 2008"),
+  _Movie(2, "The Incredible Hulk", "June 13, 2010"),
+  _Movie(3, "Iron Man 2", "May 7, 2010"),
+  _Movie(4, "Thor", "May 6, 2011"),
+  _Movie(5, "Captain America: The First Avenger", "July 22, 2011"),
+  _Movie(6, "Marvel's The Avengers", "May 4, 2012"),
 ];
 
 class MainScreen extends StatelessWidget {
@@ -119,29 +124,29 @@ class MainScreen extends StatelessWidget {
               subtitle: Text(movieList[0].date),
             ),
             ListTile(
-              leading: Text("2"),
-              title: Text("The Incredible Hulk"),
-              subtitle: Text("June 13, 2008"),
+              leading: Text(movieList[1].id.toString()),
+              title: Text(movieList[1].title),
+              subtitle: Text(movieList[1].date),
             ),
             ListTile(
-              leading: Text("3"),
-              title: Text("Iron Man 2"),
-              subtitle: Text("May 7, 2010"),
+              leading: Text(movieList[2].id.toString()),
+              title: Text(movieList[2].title),
+              subtitle: Text(movieList[2].date),
             ),
             ListTile(
-              leading: Text("4"),
-              title: Text("Thor"),
-              subtitle: Text("May 6, 2011"),
+              leading: Text(movieList[3].id.toString()),
+              title: Text(movieList[3].title),
+              subtitle: Text(movieList[3].date),
             ),
             ListTile(
-              leading: Text("5"),
-              title: Text("Captain America: The First Avenger"),
-              subtitle: Text("July 22, 2011"),
+              leading: Text(movieList[4].id.toString()),
+              title: Text(movieList[4].title),
+              subtitle: Text(movieList[4].date),
             ),
             ListTile(
-              leading: Text("6"),
-              title: Text("Marvel's The Avengers"),
-              subtitle: Text("May 4, 2012"),
+              leading: Text(movieList[5].id.toString()),
+              title: Text(movieList[5].title),
+              subtitle: Text(movieList[5].date),
             ),
           ],
         ),
