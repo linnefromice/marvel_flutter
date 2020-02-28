@@ -25,11 +25,8 @@ final movieList = [
 ];
 
 class MainScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    Widget _buildDrawer() {
-      return(
+  Widget _buildDrawer(BuildContext context) {
+    return(
         Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -97,14 +94,16 @@ class MainScreen extends StatelessWidget {
             ],
           ),
         )
-      );
-    }
+    );
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Marvel Application"),
       ),
-      drawer: _buildDrawer(),
+      drawer: _buildDrawer(context),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Today\'s Marvel Character',
         child: Icon(Icons.star),
