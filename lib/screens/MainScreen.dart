@@ -7,6 +7,18 @@ import 'package:marvel_flutter/screens/SeriesScreen.dart';
 import 'package:marvel_flutter/screens/StoriesScreen.dart';
 import 'package:marvel_flutter/screens/TodayMarvelCharacterScreen.dart';
 
+class _Movie {
+  final int id;
+  final String title;
+  final String date;
+
+  _Movie(this.id, this.title, this.date);
+}
+
+final movieList = [
+  _Movie(1, "Iron Man", "May 2, 2008"),
+];
+
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -102,9 +114,9 @@ class MainScreen extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             ListTile(
-              leading: Text("1"),
-              title: Text("Iron Man"),
-              subtitle: Text("May 2, 2008"),
+              leading: Text(movieList[0].id.toString()),
+              title: Text(movieList[0].title),
+              subtitle: Text(movieList[0].date),
             ),
             ListTile(
               leading: Text("2"),
