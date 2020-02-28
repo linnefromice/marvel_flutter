@@ -12,7 +12,7 @@ import 'package:marvel_flutter/models/StoriesResult.dart';
 import 'package:marvel_flutter/models/domain/Character.dart';
 
 class MarvelApiService {
-  static final base_url = "https://gateway.marvel.com/v1/public";
+  static final baseUrl = "https://gateway.marvel.com/v1/public";
   static final characters = "characters";
   static final comics = "comics";
   static final creators = "creators";
@@ -21,14 +21,14 @@ class MarvelApiService {
   static final stories = "stories";
 
   static final ts = "1";
-  static final public_key = "2897bec72a68cf322e6f4cba8b778ada";
-  static final private_key = "bf160c108eb8eeb10ce41dc61973e1efe6ec162c";
+  static final publicKey = "2897bec72a68cf322e6f4cba8b778ada";
+  static final privateKey = "bf160c108eb8eeb10ce41dc61973e1efe6ec162c";
 
-  static final id_iron_man = "1009368";
+  static final idIronMan = "1009368";
 
 
   static Digest _calcHash() {
-    final bytes = utf8.encode(ts + private_key + public_key);
+    final bytes = utf8.encode(ts + privateKey + publicKey);
     return md5.convert(bytes);
   }
 
@@ -36,15 +36,15 @@ class MarvelApiService {
     if (id == null) {
       return _createUrlWithoutId(entity);
     } else {
-      final String url = base_url + "/" + entity;
-      final String queryString = "ts=" + ts + "&apikey=" + public_key + "&hash=" + _calcHash().toString();
+      final String url = baseUrl + "/" + entity;
+      final String queryString = "ts=" + ts + "&apikey=" + publicKey + "&hash=" + _calcHash().toString();
       return url + "/" + id + "?" + queryString;
     }
   }
 
   static String _createUrlWithoutId(final String entity) {
-    final String url = base_url + "/" + entity;
-    final String queryString = "ts=" + ts + "&apikey=" + public_key + "&hash=" + _calcHash().toString();
+    final String url = baseUrl + "/" + entity;
+    final String queryString = "ts=" + ts + "&apikey=" + publicKey + "&hash=" + _calcHash().toString();
     return url + "?" + queryString;
   }
 

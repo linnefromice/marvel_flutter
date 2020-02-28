@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_flutter/models/CharactersResult.dart';
 import 'package:marvel_flutter/models/SeriesResult.dart';
-import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/models/domain/Series.dart';
 import 'package:marvel_flutter/services/MarvelApiService.dart';
 

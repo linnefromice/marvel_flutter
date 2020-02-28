@@ -1,7 +1,6 @@
 // https://developer.marvel.com/documentation/entity_types
 // -> Comic
 
-import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/models/domain/Comic.dart';
 
 class ComicsResult {

@@ -1,7 +1,6 @@
 // https://developer.marvel.com/documentation/entity_types
 // -> Characters
 
-import 'package:marvel_flutter/models/domain/Character.dart';
 import 'package:marvel_flutter/models/domain/Creator.dart';
 
 class CreatorsResult {
