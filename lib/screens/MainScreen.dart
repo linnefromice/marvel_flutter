@@ -25,6 +25,21 @@ final movieList = [
 ];
 
 class MainScreen extends StatelessWidget {
+
+  List<Widget> _buildMovieList(List<_Movie> dataList) {
+    List<Widget> widgetList = [];
+    dataList.forEach((movie) {
+      widgetList.add(
+        ListTile(
+          leading: Text(movie.id.toString()),
+          title: Text(movie.title),
+          subtitle: Text(movie.date),
+        )
+      );
+    });
+    return widgetList;
+  }
+
   Widget _buildDrawer(BuildContext context) {
     return(
         Drawer(
@@ -116,39 +131,8 @@ class MainScreen extends StatelessWidget {
       ),
       body: Center(
         child: ListView(
-          children: <Widget>[
-            ListTile(
-              leading: Text(movieList[0].id.toString()),
-              title: Text(movieList[0].title),
-              subtitle: Text(movieList[0].date),
-            ),
-            ListTile(
-              leading: Text(movieList[1].id.toString()),
-              title: Text(movieList[1].title),
-              subtitle: Text(movieList[1].date),
-            ),
-            ListTile(
-              leading: Text(movieList[2].id.toString()),
-              title: Text(movieList[2].title),
-              subtitle: Text(movieList[2].date),
-            ),
-            ListTile(
-              leading: Text(movieList[3].id.toString()),
-              title: Text(movieList[3].title),
-              subtitle: Text(movieList[3].date),
-            ),
-            ListTile(
-              leading: Text(movieList[4].id.toString()),
-              title: Text(movieList[4].title),
-              subtitle: Text(movieList[4].date),
-            ),
-            ListTile(
-              leading: Text(movieList[5].id.toString()),
-              title: Text(movieList[5].title),
-              subtitle: Text(movieList[5].date),
-            ),
-          ],
-        ),
+          children: _buildMovieList(movieList)
+        )
       )
     );
   }
