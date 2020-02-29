@@ -45,6 +45,7 @@ final movieList = [
 ];
 
 class MainScreen extends StatelessWidget {
+  int _index = 0;
 
   List<Widget> _buildMovieList(List<_Movie> dataList) {
     List<Widget> widgetList = [];
@@ -139,6 +140,29 @@ class MainScreen extends StatelessWidget {
         title: Text("Marvel Application"),
       ),
       drawer: _buildDrawer(context),
+      /*
+      persistentFooterButtons: <Widget>[
+        IconButton(icon: Icon(Icons.looks_one), onPressed: () => print("1")),
+        IconButton(icon: Icon(Icons.looks_two), onPressed: () => print("2")),
+        IconButton(icon: Icon(Icons.looks_3), onPressed: () => print("3")),
+        IconButton(icon: Icon(Icons.looks_4), onPressed: () => print("4")),
+      ],
+      */
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.looks_one), title: Text("Phase One")),
+          BottomNavigationBarItem(icon: Icon(Icons.looks_two), title: Text("Phase Two")),
+          BottomNavigationBarItem(icon: Icon(Icons.looks_3), title: Text("Phase Three")),
+          BottomNavigationBarItem(icon: Icon(Icons.looks_4), title: Text("Phase Four")),
+        ],
+        type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.blue,
+        currentIndex: _index,
+        onTap: (int item){
+          _index = item;
+          print("onTap -> No:" + item.toString());
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Today\'s Marvel Character',
         child: Icon(Icons.star),
