@@ -47,18 +47,18 @@ final movieList = [
 ];
 
 class MainScreen extends StatelessWidget {
-  int _index = 0;
-
-  List<Widget> _buildMovieList(List<_Movie> dataList) {
+  List<Widget> _buildMovieList(List<_Movie> dataList, int phase) {
     List<Widget> widgetList = [];
     dataList.forEach((movie) {
-      widgetList.add(
-        ListTile(
-          leading: Text(movie.id.toString()),
-          title: Text(movie.title),
-          subtitle: Text(movie.date),
-        )
-      );
+      if (movie.phase == phase) {
+        widgetList.add(
+          ListTile(
+            leading: Text(movie.id.toString()),
+            title: Text(movie.title),
+            subtitle: Text(movie.date),
+          )
+        );
+      }
     });
     return widgetList;
   }
@@ -139,47 +139,52 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = Provider.of<MainScreenBloc>(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Marvel Application"),
-      ),
-      drawer: _buildDrawer(context),
-      bottomNavigationBar: StreamBuilder(
+    return StreamBuilder(
         initialData: 0,
         stream: bloc.getSelected,
-        builder: (context, snapshot) {
-          return BottomNavigationBar(
+        builder: (context, snapshot)
+    {
+      return Scaffold(
+          appBar: AppBar(
+            title: Text("Marvel Application"),
+          ),
+          drawer: _buildDrawer(context),
+          bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.looks_one), title: Text("Phase One")),
-              BottomNavigationBarItem(icon: Icon(Icons.looks_two), title: Text("Phase Two")),
-              BottomNavigationBarItem(icon: Icon(Icons.looks_3), title: Text("Phase Three")),
-              BottomNavigationBarItem(icon: Icon(Icons.looks_4), title: Text("Phase Four")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.looks_one), title: Text("Phase One")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.looks_two), title: Text("Phase Two")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.looks_3), title: Text("Phase Three")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.looks_4), title: Text("Phase Four")),
             ],
             type: BottomNavigationBarType.fixed,
             fixedColor: Colors.blue,
             currentIndex: snapshot.data,
-            onTap: (int item){
+            onTap: (int item) {
               bloc.select.add(item);
             },
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Today\'s Marvel Character',
-        child: Icon(Icons.star),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => TodayMarvelCharacterScreen()),
-          );
-        },
-      ),
-      body: Center(
-        child: ListView(
-          children: _buildMovieList(movieList)
-        )
-      )
+          ),
+          floatingActionButton: FloatingActionButton(
+            tooltip: 'Today\'s Marvel Character',
+            child: Icon(Icons.star),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TodayMarvelCharacterScreen()),
+              );
+            },
+          ),
+          body: Center(
+            child: ListView(
+              children: _buildMovieList(movieList, snapshot.data+1)
+            )
+          )
+        );
+      }
     );
   }
-
 }
