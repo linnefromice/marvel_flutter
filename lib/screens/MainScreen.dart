@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_flutter/blocs/main_screen_bloc.dart';
 import 'package:marvel_flutter/screens/ChractersScreen.dart';
 import 'package:marvel_flutter/screens/ComicsScreen.dart';
 import 'package:marvel_flutter/screens/CreatorsScreen.dart';
@@ -6,6 +7,7 @@ import 'package:marvel_flutter/screens/EventsScreen.dart';
 import 'package:marvel_flutter/screens/SeriesScreen.dart';
 import 'package:marvel_flutter/screens/StoriesScreen.dart';
 import 'package:marvel_flutter/screens/TodayMarvelCharacterScreen.dart';
+import 'package:provider/provider.dart';
 
 class _Movie {
   final int id;
@@ -135,32 +137,31 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = Provider.of<MainScreenBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Marvel Application"),
       ),
       drawer: _buildDrawer(context),
-      /*
-      persistentFooterButtons: <Widget>[
-        IconButton(icon: Icon(Icons.looks_one), onPressed: () => print("1")),
-        IconButton(icon: Icon(Icons.looks_two), onPressed: () => print("2")),
-        IconButton(icon: Icon(Icons.looks_3), onPressed: () => print("3")),
-        IconButton(icon: Icon(Icons.looks_4), onPressed: () => print("4")),
-      ],
-      */
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.looks_one), title: Text("Phase One")),
-          BottomNavigationBarItem(icon: Icon(Icons.looks_two), title: Text("Phase Two")),
-          BottomNavigationBarItem(icon: Icon(Icons.looks_3), title: Text("Phase Three")),
-          BottomNavigationBarItem(icon: Icon(Icons.looks_4), title: Text("Phase Four")),
-        ],
-        type: BottomNavigationBarType.fixed,
-        fixedColor: Colors.blue,
-        currentIndex: _index,
-        onTap: (int item){
-          _index = item;
-          print("onTap -> No:" + item.toString());
+      bottomNavigationBar: StreamBuilder(
+        initialData: 0,
+        stream: bloc.getSelected,
+        builder: (context, snapshot) {
+          return BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.looks_one), title: Text("Phase One")),
+              BottomNavigationBarItem(icon: Icon(Icons.looks_two), title: Text("Phase Two")),
+              BottomNavigationBarItem(icon: Icon(Icons.looks_3), title: Text("Phase Three")),
+              BottomNavigationBarItem(icon: Icon(Icons.looks_4), title: Text("Phase Four")),
+            ],
+            type: BottomNavigationBarType.fixed,
+            fixedColor: Colors.blue,
+            currentIndex: snapshot.data,
+            onTap: (int item){
+              bloc.select.add(item);
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
