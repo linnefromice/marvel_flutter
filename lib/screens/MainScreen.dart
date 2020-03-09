@@ -8,6 +8,7 @@ import 'package:marvel_flutter/screens/SeriesScreen.dart';
 import 'package:marvel_flutter/screens/StoriesScreen.dart';
 import 'package:marvel_flutter/screens/TodayMarvelCharacterScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class _Movie {
   final int id;
@@ -53,6 +54,12 @@ final movieList = [
 ];
 
 class MainScreen extends StatelessWidget {
+  void _launchUrl(final String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    }
+  }
+
   List<Widget> _buildMovieList(List<_Movie> dataList, int phase) {
     List<Widget> widgetList = [];
     dataList.forEach((movie) {
@@ -62,6 +69,11 @@ class MainScreen extends StatelessWidget {
             leading: Text(movie.id.toString()),
             title: Text(movie.title),
             subtitle: Text(movie.date),
+            trailing: IconButton(
+              icon: Icon(Icons.link),
+              tooltip: 'Link',
+              onPressed: () => _launchUrl(movie.url),
+            )
           )
         );
       }
