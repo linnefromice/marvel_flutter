@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "phase": 1,
+    "title": "Iron Man",
+    "date": "May 2, 2008",
+    "url": "/iron-man"
+  },
+  {
+    "id": 2,
+    "phase": 1,
+    "title": "The Incredible Hulk",
+    "date": "June 13, 2010",
+    "url": "/the-incredible-hulk"
+  }
+]
