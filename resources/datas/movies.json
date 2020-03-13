@@ -12,5 +12,33 @@
     "title": "The Incredible Hulk",
     "date": "June 13, 2010",
     "url": "/the-incredible-hulk"
+  },
+  {
+    "id": 3,
+    "phase": 1,
+    "title": "Iron Man 2",
+    "date": "May 7, 2010",
+    "url": "/iron-man-2"
+  },
+  {
+    "id": 4,
+    "phase": 1,
+    "title": "Thor",
+    "date": "May 6, 2011",
+    "url": "/thor"
+  },
+  {
+    "id": 5,
+    "phase": 1,
+    "title": "Captain America: The First Avenger",
+    "date": "July 22, 2011",
+    "url": "/captain-america-the-first-avenger"
+  },
+  {
+    "id": 6,
+    "phase": 1,
+    "title": "Marvel's The Avengers",
+    "date": "May 4, 2012",
+    "url": "/the-avengers"
   }
 ]
