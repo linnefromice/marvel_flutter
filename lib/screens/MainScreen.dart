@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/blocs/main_screen_bloc.dart';
 import 'package:marvel_flutter/models/original/Movie.dart';
-import 'package:marvel_flutter/screens/ChractersScreen.dart';
-import 'package:marvel_flutter/screens/ComicsScreen.dart';
-import 'package:marvel_flutter/screens/CreatorsScreen.dart';
-import 'package:marvel_flutter/screens/EventsScreen.dart';
-import 'package:marvel_flutter/screens/SeriesScreen.dart';
-import 'package:marvel_flutter/screens/StoriesScreen.dart';
 import 'package:marvel_flutter/screens/TodayMarvelCharacterScreen.dart';
+import 'package:marvel_flutter/screens/common/CommonDrawer.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -73,78 +68,6 @@ class MainScreen extends StatelessWidget {
     return widgetList;
   }
 
-  Widget _buildDrawer(BuildContext context) {
-    return(
-        Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Menu'),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-              ),
-              ListTile(
-                title: Text('Characters'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CharactersScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Series'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SeriesScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Stories'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => StoriesScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Comics'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ComicsScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Events'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EventsScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Creators'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CreatorsScreen()),
-                  );
-                },
-              ),
-            ],
-          ),
-        )
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<MainScreenBloc>(context);
@@ -158,7 +81,7 @@ class MainScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text("Marvel Application"),
           ),
-          drawer: _buildDrawer(context),
+          drawer: CommonDrawer(),
           bottomNavigationBar: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
