@@ -3,84 +3,84 @@
     "id": 1,
     "phase": 1,
     "title": "Iron Man",
-    "date": "May 2, 2008",
+    "date": "20080502",
     "url": "/iron-man"
   },
   {
     "id": 2,
     "phase": 1,
     "title": "The Incredible Hulk",
-    "date": "June 13, 2010",
+    "date": "20100613",
     "url": "/the-incredible-hulk"
   },
   {
     "id": 3,
     "phase": 1,
     "title": "Iron Man 2",
-    "date": "May 7, 2010",
+    "date": "20100507",
     "url": "/iron-man-2"
   },
   {
     "id": 4,
     "phase": 1,
     "title": "Thor",
-    "date": "May 6, 2011",
+    "date": "20110506",
     "url": "/thor"
   },
   {
     "id": 5,
     "phase": 1,
     "title": "Captain America: The First Avenger",
-    "date": "July 22, 2011",
+    "date": "20110722",
     "url": "/captain-america-the-first-avenger"
   },
   {
     "id": 6,
     "phase": 1,
     "title": "Marvel's The Avengers",
-    "date": "May 4, 2012",
+    "date": "20120504",
     "url": "/the-avengers"
   },
   {
     "id": 7,
     "phase": 2,
     "title": "Iron Man 3",
-    "date": "May 3, 2013",
+    "date": "20130503",
     "url": "/iron-man-3"
   },
   {
     "id": 8,
     "phase": 2,
     "title": "Thor: The Dark World",
-    "date": "November 8, 2013",
+    "date": "20131108",
     "url": "/thor-the-dark-world"
   },
   {
     "id": 9,
     "phase": 2,
     "title": "Captain America: The Winter Soldier",
-    "date": "April 4, 2014",
+    "date": "20140404",
     "url": "/captain-america-the-winter-soldier"
   },
   {
     "id": 10,
     "phase": 2,
     "title": "Guardians of the Galaxy",
-    "date": "August 1, 2014",
+    "date": "20140801",
     "url": "/guardians-of-the-galaxy"
   },
   {
     "id": 11,
     "phase": 2,
     "title": "Avengers: Age of Ultron",
-    "date": "May 1, 2015",
+    "date": "20150501",
     "url": "/avengers-age-of-ultron"
   },
   {
     "id": 12,
     "phase": 2,
     "title": "Ant-Man",
-    "date": "July 17, 2015",
+    "date": "20150717",
     "url": "/ant-man"
   }
 ]
