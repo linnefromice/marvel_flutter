@@ -82,5 +82,82 @@
     "title": "Ant-Man",
     "date": "20150717",
     "url": "/ant-man"
+  },
+  {
+    "id": 13,
+    "phase": 3,
+    "title": "Captain America: Civil War",
+    "date": "20160506",
+    "url": "/captain-america-civil-war"
+  },
+  {
+    "id": 14,
+    "phase": 3,
+    "title": "Doctor Strange",
+    "date": "20161104",
+    "url": "/doctor-strange"
+  },
+  {
+    "id": 15,
+    "phase": 3,
+    "title": "Guardians of the Galaxy Vol. 2",
+    "date": "20170505",
+    "url": "/guardians-of-the-galaxy-vol-2"
+  },
+  {
+    "id": 16,
+    "phase": 3,
+    "title": "Spider-Man: Homecoming",
+    "date": "20170707",
+    "url": "/spider-man-homecoming"
+  },
+  {
+    "id": 17,
+    "phase": 3,
+    "title": "Thor: Ragnarok",
+    "date": "20171103",
+    "url": "/thor-ragnarok"
+  },
+  {
+    "id": 18,
+    "phase": 3,
+    "title": "Black Panther",
+    "date": "20181216",
+    "url": "/black-panther"
+  },
+  {
+    "id": 19,
+    "phase": 3,
+    "title": "Avengers: Infinity War",
+    "date": "20180427",
+    "url": "/avengers-infinity-war"
+  },
+  {
+    "id": 20,
+    "phase": 3,
+    "title": "Ant-Man and the Wasp",
+    "date": "20180706",
+    "url": "/ant-man-and-the-wasp"
+  },
+  {
+    "id": 21,
+    "phase": 3,
+    "title": "Captain Marvel",
+    "date": "20190308",
+    "url": "/captain-marvel"
+  },
+  {
+    "id": 22,
+    "phase": 3,
+    "title": "Avengers: Endgame",
+    "date": "20190426",
+    "url": "/avengers-endgame"
+  },
+  {
+    "id": 23,
+    "phase": 3,
+    "title": "Spider-Man: Far From Home",
+    "date": "20190702",
+    "url": "/spider-man-far-from-home"
   }
 ]
