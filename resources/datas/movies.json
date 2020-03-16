@@ -40,5 +40,47 @@
     "title": "Marvel's The Avengers",
     "date": "May 4, 2012",
     "url": "/the-avengers"
+  },
+  {
+    "id": 7,
+    "phase": 2,
+    "title": "Iron Man 3",
+    "date": "May 3, 2013",
+    "url": "/iron-man-3"
+  },
+  {
+    "id": 8,
+    "phase": 2,
+    "title": "Thor: The Dark World",
+    "date": "November 8, 2013",
+    "url": "/thor-the-dark-world"
+  },
+  {
+    "id": 9,
+    "phase": 2,
+    "title": "Captain America: The Winter Soldier",
+    "date": "April 4, 2014",
+    "url": "/captain-america-the-winter-soldier"
+  },
+  {
+    "id": 10,
+    "phase": 2,
+    "title": "Guardians of the Galaxy",
+    "date": "August 1, 2014",
+    "url": "/guardians-of-the-galaxy"
+  },
+  {
+    "id": 11,
+    "phase": 2,
+    "title": "Avengers: Age of Ultron",
+    "date": "May 1, 2015",
+    "url": "/avengers-age-of-ultron"
+  },
+  {
+    "id": 12,
+    "phase": 2,
+    "title": "Ant-Man",
+    "date": "July 17, 2015",
+    "url": "/ant-man"
   }
 ]
