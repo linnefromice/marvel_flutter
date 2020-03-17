@@ -159,5 +159,40 @@
     "title": "Spider-Man: Far From Home",
     "date": "20190702",
     "url": "/spider-man-far-from-home"
+  },
+  {
+    "id": 24,
+    "phase": 4,
+    "title": "Black Widow",
+    "date": "20200501",
+    "url": "/black-widow"
+  },
+  {
+    "id": 25,
+    "phase": 4,
+    "title": "The Eternals",
+    "date": "20201106",
+    "url": "/the-eternals"
+  },
+  {
+    "id": 26,
+    "phase": 4,
+    "title": "Shang-chi and the legend of ten rings",
+    "date": "XXXX",
+    "url": "/shang-chi-and-the-legend-of-the-ten-rings"
+  },
+  {
+    "id": 27,
+    "phase": 4,
+    "title": "Doctor strange in the multiverse of madness",
+    "date": "XXXX",
+    "url": "/doctor-strange-in-the-multiverse-of-madness"
+  },
+  {
+    "id": 28,
+    "phase": 4,
+    "title": "Thor: love and thunder",
+    "date": "XXXX",
+    "url": "/thor-love-and-thunder"
   }
 ]
